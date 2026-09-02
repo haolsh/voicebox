@@ -17,6 +17,7 @@ from ..utils.audio import normalize_audio, load_audio
 from ..utils.progress import get_progress_manager
 from ..utils.hf_progress import HFProgressTracker, create_hf_progress_callback
 from ..utils.tasks import get_task_manager
+from ..utils.hf_offline_patch import force_offline_if_cached
 
 logger = logging.getLogger(__name__)
 
@@ -280,7 +281,13 @@ def model_load_progress(
         )
 
     try:
-        yield tracker_context
+        # A cached model must be loaded strictly from the local HF cache.
+        # Without this guard, transformers/qwen_tts may issue HEAD requests
+        # for config.json or model metadata on every model switch/startup.
+        # When the model is not cached, keep the existing online behavior so
+        # the first-use download still works.
+        with force_offline_if_cached(is_cached, model_name):
+            yield tracker_context
     except Exception as e:
         # Report error to both managers
         progress_manager.mark_error(model_name, str(e))
