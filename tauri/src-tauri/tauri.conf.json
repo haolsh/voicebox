@@ -60,7 +60,7 @@
       "open": ".*"
     },
     "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEUxRENBQkRBQjdBNTM1OTIKUldTU05hVzMycXZjNGJGcUxmcVVocll2QjdSaTJNdlFxR2M3VDJsMnVvbDdyZGRPMmRlOW9aWTcK",
+      "pubkey": "AAAAB3NzaC1yc2EAAAADAQABAAABAQC1H2ATzini32g6JOaT+KQnooFHLECX2VSGd9Buel9YTBbwNQCF9wKZ3qlzEz1gGC1fpavfZRUu7D2eOLCkVCKgbH9JEoNgDB5MrWoOohyekY1PL1Cq1fuoDaU9ii+h+HepYcFYNlie3B5ECjWbl8jj0rDArI3zMDHXCqyGbF4yJjm/es8TQcn4inZoSf5AO+mqBL3Zi/a208DDy7i2cHVTusyr7O/B9fuBFqcxPQrdr+vBbgYa+pIRHreBQq7nDv92mxjK0EaW/U3NvjbdDipo+QrviG4ND/aQnq0kkfCTouHk+YOfpCAgEzT5kmv21Uu6AWilDKQWKcJgJRg3KzIx",
       "endpoints": ["https://github.com/jamiepine/voicebox/releases/latest/download/latest.json"]
     }
   }
