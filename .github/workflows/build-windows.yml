@@ -51,6 +51,12 @@ jobs:
 
       - name: Install dependencies
         run: bun install
+      # --- 新增步骤：在 CI 运行时删除公钥，防止 Tauri 尝试签名 ---
+      - name: Remove Tauri public key (prevent CI signing)
+        shell: pwsh
+        run: |
+          $pub = 'tauri/src-tauri/bundle/public_key.pem'
+          if (Test-Path -Path $pub) { Remove-Item $pub -Force }
 
       - uses: tauri-apps/tauri-action@v0
         env:
