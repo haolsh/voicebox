@@ -70,3 +70,14 @@ jobs:
           prerelease: true
           args: ""
           includeUpdaterJson: false
+   # 无论上一步成功与否都上传产物，方便下载（if: always()）
+      - name: Upload Windows installers
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-installers
+          path: |
+            tauri/src-tauri/target/release/bundle/msi/*.msi
+            tauri/src-tauri/target/release/bundle/msi/*.zip
+            tauri/src-tauri/target/release/bundle/nsis/*.exe
+            tauri/src-tauri/target/release/bundle/nsis/*.zip
